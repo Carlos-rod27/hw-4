@@ -34,23 +34,29 @@ public class CompleteBinaryTree<T> {
     }
 
     public boolean contains(T checkItem) {
-        if (item == null) {
-            return false;
-        }
         if (item.equals(checkItem)) {
             return true;
+        } else {
+            boolean found = false;
+            if (leftChild != null) {
+                found = leftChild.contains(checkItem);
+            }
+            if (!found && rightChild != null) {
+                found = rightChild.contains(checkItem);
+            }
+            return found;
         }
-        boolean found = false;
-        if (leftChild != null) {
-            found = leftChild.contains(checkItem);
-        }
-        if (!found && rightChild != null) {
-            found = rightChild.contains(checkItem);
-        }
-        return found;
     }
 
     public int size() {
+        int size = 1;
+        if (leftChild != null) {
+            size += leftChild.size();
+        }
+        if (rightChild != null) {
+            size += rightChild.size();
+        }
         return size;
     }
+
 }
