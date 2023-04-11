@@ -21,7 +21,10 @@ public class CBT<T> {
      * A reference to the tree is returned.
      */
     public CBT(T newItem) {
-      
+      this.item = newItem;
+      this.leftChild = null;
+      this.rightChild = null;
+      this.size = 1;
     } // end constructor
   
     /**
